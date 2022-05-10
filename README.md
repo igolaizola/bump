@@ -2,6 +2,12 @@
 
 Bump scripts
 
+## Bump all
+
+```
+./bump.sh
+```
+
 ## Bump golang
 
 ```
@@ -12,4 +18,10 @@ Bump scripts
 
 ```
 ./bump-crdb.sh
+```
+
+## Bump yq
+
+```
+./bump-yq.sh
 ```
