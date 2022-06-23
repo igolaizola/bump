@@ -1,6 +1,9 @@
 #!/bin/bash
 LATEST=$(curl -s https://www.cockroachlabs.com/docs/stable/install-cockroachdb-linux.html | grep version-name | sed 's/.*<.*>\(.*\)<.*>/\1/')
-CURRENT=$(cockroach version | grep "Build Tag" | sed 's/.* //g')
+CURRENT="nil"
+if cockroach version &> /dev/null; then
+    CURRENT=$(cockroach version | grep "Build Tag" | sed 's/.* //g')
+fi
 if [ "$LATEST" = "$CURRENT" ]; then
     echo Cockroach version is up to date: "$LATEST"
 else
