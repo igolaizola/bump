@@ -2,7 +2,7 @@
 LATEST=$(curl -w "%{redirect_url}" -o /dev/null -s https://github.com/mikefarah/yq/releases/latest | awk -F '/' '{print $NF}')
 CURRENT="nil"
 if yq -V &> /dev/null; then
-    CURRENT=v$(yq -V || true | awk '{print $NF}')
+    CURRENT=v$(yq -V | awk '{print $NF}')
 fi
 if [ "$LATEST" = "$CURRENT" ]; then
     echo yq version is up to date: "$LATEST"
