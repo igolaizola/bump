@@ -1,5 +1,5 @@
 #!/bin/bash
-LATEST=$(curl -s https://www.cockroachlabs.com/docs/stable/install-cockroachdb-linux.html | grep version-name | sed 's/.*<.*>\(.*\)<.*>/\1/')
+LATEST=$(curl -s https://www.cockroachlabs.com/docs/stable/install-cockroachdb-linux.html | grep version-name | sed -n 's/.*<.*>\(.*\)<.*>/\1/p')
 CURRENT="nil"
 if cockroach version &> /dev/null; then
     CURRENT=$(cockroach version | grep "Build Tag" | sed 's/.* //g')
