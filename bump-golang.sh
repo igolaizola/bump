@@ -1,5 +1,5 @@
 #!/bin/bash
-LATEST=$(curl -s https://go.dev/dl/ | grep ".linux-amd64.tar.gz</span>" | sed -e 's/.*go\(.*\).linux.*/\1/')
+LATEST=$(curl -s -L https://go.dev/dl/ | grep ".linux-amd64.tar.gz</span>" | sed -e 's/.*go\(.*\).linux.*/\1/')
 CURRENT="nil"
 if go version &> /dev/null; then
     CURRENT=$(go version |  sed -e 's/.*go\(.*\) linux.*/\1/')
