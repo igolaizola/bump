@@ -8,3 +8,6 @@ echo
 echo Bumping yq
 ./bump-yq.sh
 echo
+echo Bumping nodejs
+./bump-node.sh
+echo
